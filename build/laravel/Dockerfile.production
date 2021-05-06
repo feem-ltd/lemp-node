@@ -85,3 +85,4 @@ RUN mkdir /var/run/php-fpm && \
 COPY volumes/laravel .
 
 RUN composer install
+RUN chown -R www-data:www-data /var/www
