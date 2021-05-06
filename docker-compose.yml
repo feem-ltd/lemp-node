@@ -27,7 +27,7 @@ services:
     ports:
       - 9302:3000
     volumes:
-      - ./volumes/nuxt:/usr/share/nginx/html
+      - ./volumes/nuxt:/usr/src/app
 
   laravel:
     build:

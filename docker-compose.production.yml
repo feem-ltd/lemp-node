@@ -21,11 +21,9 @@ services:
   nuxt:
     build:
       context: .
-      dockerfile: ./build/nuxt/Dockerfile
+      dockerfile: ./build/nuxt/Dockerfile.production
     expose:
       - 3000
-    ports:
-      - 9302:3000
     volumes:
       - ./volumes/nuxt:/usr/share/nginx/html
 
@@ -35,9 +33,9 @@ services:
       dockerfile: ./build/laravel/Dockerfile.production
     # image: feem/laravel-php
     expose:
-      - 9000
+      - 8000
     # ports:
-      # - "9000:9000"
+      # - "8000:8000"
       # - "8877:8877"
     # volumes:
       # - ./mounts/laravel_queue.conf:/etc/supervisor/conf.d/laravel_queue.conf

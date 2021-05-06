@@ -13,26 +13,7 @@ RUN apt-get update \
 # アプリケーションディレクトリを作成する
 WORKDIR /usr/src/app
 
-# アプリケーションの依存関係をインストールする
-# ワイルドカードを使用して、package.json と package-lock.json の両方が確実にコピーされるようにします。
-# 可能であれば (npm@5+)
-COPY volumes/nuxt/package*.json ./
-COPY volumes/nuxt/yarn.lock ./
-COPY build/nuxt/init.sh ./
-
-RUN yarn install
-# 本番用にコードを作成している場合
-# RUN npm install --only=production
-
-# アプリケーションのソースをバンドルする
-COPY volumes/nuxt .
-
 EXPOSE 3000
 ENV HOST 0.0.0.0
 
-# CMD ["npm", "run", "dev"]
-# CMD ["npm", "run", "dev:stg"]
-# CMD ["npm", "run", "bstart"]
-RUN yarn run build
-CMD ["yarn", "run", "start"]
-# CMD ["/bin/bash", "/usr/src/app/init.sh"]
+CMD ["npm", "run", "dev"]
