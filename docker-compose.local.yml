@@ -28,7 +28,7 @@ services:
       context: .
       dockerfile: ./build/laravel/Dockerfile.production
     expose:
-      - 8000
+      - 9000
     environment:
       - TZ=Asia/Tokyo
       - APP_URL=http://localhost:${DOCKER_MAP_PORT}

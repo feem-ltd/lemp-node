@@ -12,22 +12,22 @@ services:
     ports:
       - "${DOCKER_MAP_PORT}:80"
     links:
+      # - nuxt
       - laravel
-      - nuxt
     depends_on:
-      - nuxt
+      # - nuxt
       - laravel
 
-  nuxt:
-    build:
-      context: .
-      dockerfile: ./build/nuxt/Dockerfile
-    expose:
-      - 3000
-    ports:
-      - 9302:3000
-    volumes:
-      - ./volumes/nuxt:/usr/src/app
+  # nuxt:
+  #   build:
+  #     context: .
+  #     dockerfile: ./build/nuxt/Dockerfile
+  #   expose:
+  #     - 3000
+  #   ports:
+  #     - 9302:3000
+  #   volumes:
+  #     - ./volumes/nuxt:/usr/src/app
 
   laravel:
     build:
